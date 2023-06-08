@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Rancho&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: wheat;
+}
+
+html {
+    font-size: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.gallery-container {
+    padding: 50px 16% 70px 16%;
+}
+
+.title {
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    background: -webkit-linear-gradient(#c58f19, #994b1b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.album-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    margin: 2.5em 0;
+    font-size: 1.04em;
+    font-weight: 400;
+}
+
+.album-menu input {
+    display: none;
+}
+
+.album-menu label {
+    padding: 0 0.5em 0.15em 0.5em;
+    color: rgb(58, 56, 56);
+    font-weight: 500;
+}
+
+.album-menu label:hover {
+    color: #aa5c2b;
+    cursor: pointer;
+}
+
+.underline {
+    box-shadow: 0 .125em #aa5c2b;
+    color: #aa5c2b !important;
+    transition: box-shadow .5s linear, color .5s ease;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.gallery li a {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 7px ;
+    background-position: center;
+    aspect-ratio: 1/ 1;
+}
+
+.gallery li:first-child a {
+    background-image: url(./images/coffee1.jpg);
+}
+
+.gallery li:nth-child(2) a {
+    background-image: url(./images/croissant1.jpg);
+}
+
+.gallery li:nth-child(3) a {
+    background-image: url(./images/coffee2.jpg);
+}
+
+.gallery li:nth-child(4) a {
+    background-image: url(./images/donut1.jpg);
+}
+
+.gallery li:nth-child(5) a {
+    background-image: url(./images/croissant2.jpg);
+}
+
+.gallery li:nth-child(6) a {
+    background-image: url(./images/donut3.jpg);
+}
+
+.gallery li:nth-child(7) a {
+    background-image: url(./images/croissant3.jpg);
+}
+
+.gallery li:nth-child(8) a {
+    background-image: url(./images/donut2.jpg);
+}
+
+.gallery li:nth-child(9) a {
+    background-image: url(./images/coffee3.jpg);
+}
+
+.gallery p {
+    color: #fff;
+    font-size: 1em;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity .9s;
+    border-radius: 7px;
+}
+
+.gallery li:hover p {
+    opacity: 1;
+    backdrop-filter: blur(2px);
+}
+
+@media only screen and (max-width: 660px) {
+    .gallery {
+        grid-template-columns: repeat(2, 50%);
+        grid-template-rows: repeat(5, 1fr);
+    }
+}

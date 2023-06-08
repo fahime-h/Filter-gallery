@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="gallery-container">
+        <h1 class="title">Gallery</h1>
+        <div class="album-menu">
+            <input type="radio" id="select-all" name="album-menu-btn"/>
+            <label for="select-all" class="underline" id="cate">All</label>
+
+            <input type="radio" id="coffee" name="album-menu-btn"/>
+            <label for="coffee" id="cate">Coffee</label>
+
+            <input type="radio" id="croissant" name="album-menu-btn"/>
+            <label for="croissant" id="cate">Croissant</label>
+
+            <input type="radio" id="donut" name="album-menu-btn"/>
+            <label for="donut" id="cate">Donut</label>
+        </div>
+        <ul class="gallery">
+            <li class="coffee">
+              <a href="#">
+                <p>Coffee</p>
+              </a>
+            </li>
+            <li class="croissant">
+              <a href="#">
+                <p>Croissant</p>
+              </a>
+            </li>
+            <li class="coffee">
+              <a href="#">
+                <p>Coffee</p>
+              </a>
+            </li>
+            <li class="donut">
+              <a href="#">
+                <p>Donut</p>
+              </a>
+            </li>
+            <li class="croissant">
+              <a href="#">
+                <p>Croissant</p>
+              </a>
+            </li>
+            <li class="donut">
+              <a href="#">
+                <p>Donut</p>
+              </a>
+            </li>
+            <li class="croissant">
+              <a href="#">
+                <p>Croissant</p>
+              </a>
+            </li>
+            <li class="donut">
+              <a href="#">
+                <p>Donut</p>
+              </a>
+            </li>
+            <li class="coffee">
+              <a href="#">
+                <p>Coffee</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+<script>
+//Underline Menu Items On Clicking ........................................................
+document.querySelectorAll("#cate").forEach((value) => {
+  value.addEventListener("click", (e) => {
+    document.querySelector(".underline").classList.toggle("underline");
+    e.target.classList.toggle("underline");
+  });
+});
+
+//Album Filtering ........................................................
+
+document.querySelectorAll('input[name="album-menu-btn"]').forEach(item => {
+      item.addEventListener("change", (e)=> {
+          if (e.target.checked) {
+              if(e.currentTarget.id == "select-all") {
+                  document.querySelectorAll(`.gallery > li`).forEach(n => {
+                  n.style.opacity = "1"
+                  n.style.transition = "opacity 2s"
+              });
+              } else {
+                  document.querySelectorAll(`.gallery > li:is(.${e.currentTarget.id})`).forEach(n => {
+                  n.style.opacity = "1"
+                  n.style.transition = "opacity 2s"
+              });
+              let a = document.querySelectorAll(`.gallery > li:not(.${e.currentTarget.id})`);
+              a.forEach(m => {
+                  m.style.opacity = ".3"
+                  m.style.transition = "opacity 1s"
+              }) 
+              }
+            
+          }   
+      })
+})
+</script>
+</body>
+</html>
